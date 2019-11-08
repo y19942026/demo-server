@@ -1,13 +1,24 @@
 {
+    "apps": [
+        {
+            "name": "demo-server",
+            "script": "/home/ubuntu/deploy/demo-server/current/bin/www",
+            "env": {
+                "COMMON_VARIABLE": "true"
+            },
+            "env_production": {
+                "NODE_ENV": "production"
+            }
+        }
+    ],
     "deploy": {
         "production": {
             "user": "ubuntu",
             "host": ["118.89.39.58"],
             "port": "1994",
             "ref": "origin/master",
-            "repo": "git@github.com:y19942026/react-app.git",
-            "path": "/home/ubuntu/deploy/react-app",
-            "post-deploy": "npm run build && rm -rf ../../express-server/current/public/build && mv build ../../express-server/current/public/",
+            "repo": "git@github.com:y19942026/demo-server.git",
+            "path": "/home/ubuntu/deploy/demo-server",
             "ssh_options": "StrictHostKeyChecking=no",
             "env": {
                 "NODE_ENV": "production"
@@ -15,3 +26,5 @@
         }
     }
 }
+
+    
